@@ -1,1 +1,1 @@
-# maghrebtrip-server
+# Server of MaghrebTrip app
