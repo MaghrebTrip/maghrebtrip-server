@@ -27,6 +27,7 @@ public class Feedback {
     )
     private Integer id;
     private Integer touristId;
+    private Integer attractionId;
     private String rating;
     private String comment;
     private LocalDateTime date;

@@ -29,5 +29,4 @@ public class Tourist {
     private String password;
     private String nationality;
     private String[] preferences;
-    private String[] tripHistory;
 }

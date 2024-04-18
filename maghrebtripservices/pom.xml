@@ -16,6 +16,10 @@
     <module>feedback</module>
     <module>tourist</module>
     <module>eureka-server</module>
+    <module>attraction</module>
+    <module>city</module>
+    <module>trip</module>
+    <module>plan</module>
   </modules>
 
   <properties>

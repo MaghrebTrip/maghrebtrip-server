@@ -1,16 +1,16 @@
 server:
-  port: 8085
+  port: 8084
 
 spring:
   application:
-    name: feedback
+    name: attraction
   datasource:
-    url: jdbc:postgresql://localhost:5432/feedback
+    url: jdbc:postgresql://localhost:5432/attraction
     username: postgres
     password: password
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect

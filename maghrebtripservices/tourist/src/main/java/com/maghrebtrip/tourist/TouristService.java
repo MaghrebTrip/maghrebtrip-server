@@ -29,6 +29,7 @@ public class TouristService {
                 .email(request.email())
                 .password(request.password())
                 .nationality(request.nationality())
+                .preferences(request.preferences())
                 .build();
         // TODO: check if email is valid
         // TODO: check if email not taken
@@ -36,15 +37,13 @@ public class TouristService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        String requestBody = "{\"touristId\":\"1\",\"rating\":\"5\",\"comment\":\"I like it!\"}";
+        String requestBody = "{\"touristId\":\"1\",\"attractionId\":\"1\",\"rating\":\"5\",\"comment\":\"I like it!\"}";
         HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
-        String response = restTemplate.postForObject(
+
+        return restTemplate.postForObject(
                 "http://FEEDBACK/api/v1/feedbacks/new",
                 requestEntity,
-                String.class
-        );
-
-        return response;
+                String.class);
     }
 
     public void updateTourist(Integer id, TouristUpdateRequest request) {
