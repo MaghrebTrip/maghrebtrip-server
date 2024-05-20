@@ -1,19 +1,35 @@
 package com.maghrebtrip.attraction.restaurant;
 
+import com.maghrebtrip.attraction.Schedule;
+
+import java.util.List;
+
 public class RestaurantBuilder {
 
-  private String name;
+    private String name;
+    private byte[] image;
+    private String type;
     private Integer cityId;
     private String location;
     private String description;
-    private String email;
-    private String phone;
     private Integer sponsored;
     private String cuisineType;
     private String affordability;
+    private Float rating;
+    private List<Schedule> schedules;
 
     public RestaurantBuilder name(String name) {
         this.name = name;
+        return this;
+    }
+
+    public RestaurantBuilder image(byte[] image) {
+        this.image = image;
+        return this;
+    }
+
+    public RestaurantBuilder type(String type) {
+        this.type = type;
         return this;
     }
 
@@ -32,16 +48,6 @@ public class RestaurantBuilder {
         return this;
     }
 
-    public RestaurantBuilder email(String email) {
-        this.email = email;
-        return this;
-    }
-
-    public RestaurantBuilder phone(String phone) {
-        this.phone = phone;
-        return this;
-    }
-
     public RestaurantBuilder sponsored(Integer sponsored) {
         this.sponsored = sponsored;
         return this;
@@ -57,19 +63,29 @@ public class RestaurantBuilder {
         return this;
     }
 
+    public RestaurantBuilder rating(Float rating) {
+        this.rating = rating;
+        return this;
+    }
+
+    public RestaurantBuilder schedules(List<Schedule> schedules) {
+        this.schedules = schedules;
+        return this;
+    }
+
     public Restaurant build() {
         Restaurant restaurant = new Restaurant();
         restaurant.setName(name);
+        restaurant.setImage(image);
+        restaurant.setType(type);
         restaurant.setCityId(cityId);
         restaurant.setLocation(location);
         restaurant.setDescription(description);
-        restaurant.setEmail(email);
-        restaurant.setPhone(phone);
         restaurant.setSponsored(sponsored);
         restaurant.setCuisineType(cuisineType);
         restaurant.setAffordability(affordability);
-
-        // Perform any additional operations here if needed
+        restaurant.setRating(rating);
+        restaurant.setSchedules(schedules);
 
         return restaurant;
     }

@@ -13,8 +13,6 @@ import com.maghrebtrip.attraction.Attraction;
 @Entity
 public class Restaurant extends Attraction {
 
-    private String email;
-    private String phone;
     private String cuisineType;
     private String affordability;
 

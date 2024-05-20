@@ -2,6 +2,8 @@ server:
   port: 8084
 
 spring:
+  profiles:
+    active: default
   application:
     name: attraction
   datasource:
@@ -10,7 +12,7 @@ spring:
     password: password
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect

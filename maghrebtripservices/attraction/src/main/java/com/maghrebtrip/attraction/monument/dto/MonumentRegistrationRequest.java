@@ -1,14 +1,18 @@
 package com.maghrebtrip.attraction.monument.dto;
 
+import com.maghrebtrip.attraction.Schedule;
+
+import java.util.List;
+
 public record MonumentRegistrationRequest(
         String name,
+        byte[] image,
+        String type,
         Integer cityId,
         String location,
         String description,
-        String email,
-        String phone,
         Integer sponsored,
-        Integer rating,
-        String history
+        Float rating,
+        List<Schedule> schedules
 ) {
 }

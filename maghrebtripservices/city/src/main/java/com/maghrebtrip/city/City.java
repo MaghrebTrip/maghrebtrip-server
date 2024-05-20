@@ -23,7 +23,7 @@ public class City {
     private Integer id;
     private String name;
     private byte[] image;
-    @Column(length = 1000)
+    @Column(length = 1500)
     private String about;
     private float rating;
 }

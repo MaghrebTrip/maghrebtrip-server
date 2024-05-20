@@ -14,8 +14,6 @@ public class Hotel extends Attraction {
 
     //private Integer rating;
     private String[] amenities;
-    private String email;
-    private String phone;
     private String roomTypes;
 
     public static HotelBuilder builder() {

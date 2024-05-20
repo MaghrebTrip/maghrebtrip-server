@@ -1,22 +1,37 @@
 package com.maghrebtrip.attraction.hotel;
 
 
+import com.maghrebtrip.attraction.Schedule;
+
+import java.util.List;
 
 public class HotelBuilder {
 
 
     private String name;
+    private byte[] image;
+    private String type;
     private Integer cityId;
     private String location;
     private String description;
-    private String email;
-    private String phone;
     private Integer sponsored;
-    private Integer rating;
+    private Float rating;
+    private List<Schedule> schedules;
     private String[] amenities;
+    private String roomTypes;
 
     public HotelBuilder name(String name) {
         this.name = name;
+        return this;
+    }
+
+    public HotelBuilder image(byte[] image) {
+        this.image = image;
+        return this;
+    }
+
+    public HotelBuilder type(String type) {
+        this.type = type;
         return this;
     }
 
@@ -35,27 +50,18 @@ public class HotelBuilder {
         return this;
     }
 
-    public HotelBuilder email(String email) {
-        this.email = email;
-        return this;
-    }
-
-    public HotelBuilder phone(String phone) {
-        this.phone = phone;
-        return this;
-    }
-
     public HotelBuilder sponsored(Integer sponsored) {
         this.sponsored = sponsored;
         return this;
     }
 
-
-
-    // Add similar methods for other fields
-
-    public HotelBuilder rating(Integer rating) {
+    public HotelBuilder rating(Float rating) {
         this.rating = rating;
+        return this;
+    }
+
+    public HotelBuilder schedules(List<Schedule> schedules) {
+        this.schedules = schedules;
         return this;
     }
 
@@ -64,19 +70,24 @@ public class HotelBuilder {
         return this;
     }
 
+    public HotelBuilder roomTypes(String roomTypes) {
+        this.roomTypes = roomTypes;
+        return this;
+    }
+
     public Hotel build() {
         Hotel hotel = new Hotel();
         hotel.setName(name);
+        hotel.setImage(image);
+        hotel.setType(type);
         hotel.setCityId(cityId);
         hotel.setLocation(location);
         hotel.setDescription(description);
-        hotel.setEmail(email);
-        hotel.setPhone(phone);
         hotel.setSponsored(sponsored);
         hotel.setRating(rating);
+        hotel.setSchedules(schedules);
         hotel.setAmenities(amenities);
-
-        // Perform any additional operations here if needed
+        hotel.setRoomTypes(roomTypes);
 
         return hotel;
     }

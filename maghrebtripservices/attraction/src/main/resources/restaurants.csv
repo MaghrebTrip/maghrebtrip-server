@@ -1,0 +1,31 @@
+city_id,name,image,type,description,location,rating,schedule,sponsored,cuisine_type,affordability
+1,Le Dhow,https://placehold.co/600x400.png,Restaurant,A unique dining experience on a boat with a view of the Bouregreg River.,"34°1'34'N, 6°49'32'W",4.5,,0,International,$$$
+1,Ty Potes,https://placehold.co/600x400.png,Restaurant,Cozy restaurant offering French and Mediterranean dishes.,"34°1'33'N, 6°49'22'W",4.7,,0,"French, Mediterranean",$$
+1,Dar Naji,https://placehold.co/600x400.png,Restaurant,Traditional Moroccan cuisine in a beautifully decorated setting.,"34°1'30'N, 6°49'27'W",4.4,,0,Moroccan,$$
+2,Rick's Café,https://placehold.co/600x400.png,Restaurant,"Iconic restaurant inspired by the movie Casablanca, offering a blend of Moroccan and international cuisine.","33°35'36'N, 7°37'0'W",4.6,,0,"International, Moroccan",$$$
+2,La Sqala,https://placehold.co/600x400.png,Restaurant,Charming restaurant in a historic fort serving Moroccan dishes.,"33°36'3'N, 7°37'35'W",4.5,,0,Moroccan,$$
+2,Le Cabestan,https://placehold.co/600x400.png,Restaurant,Elegant seaside dining with a focus on seafood and French cuisine.,"33°36'1'N, 7°40'45'W",4.7,,0,"Seafood, French",$$$
+3,El Morocco Club,https://placehold.co/600x400.png,Restaurant,Stylish restaurant offering gourmet Moroccan and Mediterranean cuisine.,"35°47'3'N, 5°48'3'W",4.8,,0,"Moroccan, Mediterranean",$$$
+3,Le Saveur du Poisson,https://placehold.co/600x400.png,Restaurant,"Popular spot for fresh seafood with a unique, fixed menu.","35°47'6'N, 5°48'8'W",4.6,,0,Seafood,$$
+3,Restaurant Rif Kebdani,https://placehold.co/600x400.png,Restaurant,Family-run restaurant serving traditional Moroccan dishes.,"35°47'10'N, 5°48'11'W",4.4,,0,Moroccan,$$
+4,Restaurant Al Akhawayn,https://placehold.co/600x400.png,Restaurant,Casual restaurant known for its traditional Moroccan food and hospitality.,"33°31'51'N, 5°6'46'W",4.3,,0,Moroccan,$$
+4,Forest Restaurant,https://placehold.co/600x400.png,Restaurant,Cozy spot offering a variety of international and Moroccan dishes.,"33°32'1'N, 5°7'1'W",4.5,,0,"International, Moroccan",$$
+4,Le Chamonix,https://placehold.co/600x400.png,Restaurant,"Restaurant with a warm atmosphere, serving a mix of Moroccan and international cuisine.","33°31'52'N, 5°6'47'W",4.4,,0,"Moroccan, International",$$
+5,Café Clock,https://placehold.co/600x400.png,Restaurant,Trendy spot known for its camel burger and cultural events.,"34°3'45'N, 4°58'52'W",4.6,,0,"International, Moroccan",$$
+5,The Ruined Garden,https://placehold.co/600x400.png,Restaurant,Beautifully restored garden offering traditional Moroccan and Mediterranean dishes.,"34°3'50'N, 4°58'41'W",4.7,,0,"Moroccan, Mediterranean",$$$
+5,Dar Roumana,https://placehold.co/600x400.png,Restaurant,Elegant dining experience with a focus on French and Moroccan cuisine.,"34°3'55'N, 4°58'36'W",4.8,,0,"French, Moroccan",$$$
+6,Casa Louis,https://placehold.co/600x400.png,Restaurant,Beachfront restaurant serving fresh seafood and Mediterranean dishes.,"23°43'25'N, 15°56'15'W",4.5,,0,"Seafood, Mediterranean",$$$
+6,Talhamar,https://placehold.co/600x400.png,Restaurant,Popular spot for grilled meats and traditional Moroccan cuisine.,"23°42'40'N, 15°56'30'W",4.4,,0,Moroccan,$$
+6,Villa Dakhla,https://placehold.co/600x400.png,Restaurant,Upscale restaurant offering a variety of international and local dishes.,"23°42'55'N, 15°56'47'W",4.6,,0,"International, Moroccan",$$$
+7,Al Fassia,https://placehold.co/600x400.png,Restaurant,"Renowned restaurant run by women, specializing in authentic Moroccan cuisine.","31°37'30'N, 8°0'30'W",4.8,,0,Moroccan,$$$
+7,Le Jardin,https://placehold.co/600x400.png,Restaurant,Beautiful garden setting offering Moroccan and international dishes.,"31°37'10'N, 7°59'30'W",4.6,,0,"Moroccan, International",$$
+7,Nomad,https://placehold.co/600x400.png,Restaurant,Trendy rooftop restaurant with modern Moroccan cuisine and great views.,"31°37'40'N, 7°59'20'W",4.7,,0,Modern Moroccan,$$$
+8,Restaurant Zitoune,https://placehold.co/600x400.png,Restaurant,Traditional Moroccan restaurant with a cozy atmosphere and local dishes.,"33°53'57'N, 5°33'20'W",4.4,,0,Moroccan,$$
+8,La Grillardiere,https://placehold.co/600x400.png,Restaurant,Casual dining spot offering a variety of grilled meats and fast food options.,"33°53'52'N, 5°33'25'W",4.3,,0,"Grill, Fast Food",$
+8,Collier de la Colombe,https://placehold.co/600x400.png,Restaurant,"Elegant restaurant with panoramic views, serving Moroccan and French cuisine.","33°53'50'N, 5°33'19'W",4.5,,0,"Moroccan, French",$$$
+9,Chez Hosni,https://placehold.co/600x400.png,Restaurant,Popular seafood restaurant known for its fresh fish and local dishes.,"32°18'52'N, 9°14'6'W",4.4,,0,Seafood,$$
+9,Le Filet du Pecheur,https://placehold.co/600x400.png,Restaurant,Casual spot offering a variety of seafood dishes and local specialties.,"32°18'53'N, 9°14'5'W",4.3,,0,Seafood,$$
+9,Riad du Pecheur,https://placehold.co/600x400.png,Restaurant,"Restaurant with a cozy atmosphere, serving Moroccan and international cuisine.","32°18'50'N, 9°14'7'W",4.2,,0,"Moroccan, International",$$
+10,Café Restaurant Sofia,https://placehold.co/600x400.png,Restaurant,Casual dining spot with a variety of Moroccan dishes and a cozy atmosphere.,"35°10'44'N, 5°16'49'W",4.3,,0,Moroccan,$$
+10,Restaurant Beldi Bab Ssour,https://placehold.co/600x400.png,Restaurant,Traditional Moroccan restaurant known for its friendly service and delicious food.,"35°10'40'N, 5°16'55'W",4.6,,0,Moroccan,$$
+10,Restaurant Aladdin,https://placehold.co/600x400.png,Restaurant,Rooftop restaurant offering stunning views and a mix of Moroccan and international cuisine.,"35°10'35'N, 5°16'58'W",4.5,,0,"Moroccan, International",$$

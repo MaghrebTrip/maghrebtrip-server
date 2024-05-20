@@ -1,16 +1,14 @@
 package com.maghrebtrip.plan;
 
-import com.maghrebtrip.attraction.Attraction;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.maghrebtrip.clients.attraction.AttractionResponse;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
 
 @Entity
 @Data
@@ -23,5 +21,6 @@ public class Plan {
     @Id
     private Integer id;
     private Integer cityId;
-    private List<Attraction> attractions;
+    @ElementCollection
+    private List<AttractionResponse> attractions;
 }

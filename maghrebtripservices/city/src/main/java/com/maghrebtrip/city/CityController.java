@@ -8,13 +8,14 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/cities")
+@RequestMapping("api/v1/cities/")
 @AllArgsConstructor
 public class CityController {
 
     private final CityRepository cityRepository;
     private final CityService cityService;
 
+    @CrossOrigin("http://localhost:5173/")
     @GetMapping("all")
     public List<City> getAllCities() {return cityService.getAllCities();}
 
@@ -22,14 +23,12 @@ public class CityController {
     public City getCity(@PathVariable("id") Integer id) {return cityService.getCity(id);}
 
     @PostMapping("new")
-    public ResponseEntity<String> registerCity(@RequestBody RegisterCityRequest registerCityRequest) {
-        String response;
+    public City registerCity(@RequestBody RegisterCityRequest registerCityRequest) {
         try {
-            response = cityService.registerCity(registerCityRequest);
+            return cityService.registerCity(registerCityRequest);
         } catch (IOException e) {
-            return ResponseEntity.badRequest().body("Error registering city");
+            throw new RuntimeException(e);
         }
-        return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("delete/{id}")
@@ -39,12 +38,11 @@ public class CityController {
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<String> updateCity(@PathVariable("id") Integer id, @RequestBody UpdateCityRequest updateCityRequest) {
+    public City updateCity(@PathVariable("id") Integer id, @RequestBody UpdateCityRequest updateCityRequest) {
         try {
-            cityService.updateCity(id, updateCityRequest);
+            return cityService.updateCity(id, updateCityRequest);
         } catch (IOException e) {
-            return ResponseEntity.badRequest().body("Error updating city");
+            throw new RuntimeException(e);
         }
-        return ResponseEntity.ok("City updated successfully!");
     }
 }

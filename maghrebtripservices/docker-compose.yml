@@ -29,8 +29,74 @@ services:
       - postgres
     restart: unless-stopped
 
+  eureka-server:
+    build:
+      context: eureka-server
+      dockerfile: Dockerfile
+    image: maghrebtrip/eureka-server:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - spring
+
+  city:
+    build:
+      context: city
+      dockerfile: Dockerfile
+    image: maghrebtrip/city:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    container_name: city
+    ports:
+      - "8082:8082"
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - eureka-server
+      - postgres
+
+  plan:
+    build:
+      context: plan
+      dockerfile: Dockerfile
+    image: maghrebtrip/plan:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    container_name: plan
+    ports:
+      - "8083:8083"
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - eureka-server
+      - postgres
+
+  attraction:
+    build:
+      context: attraction
+      dockerfile: Dockerfile
+    image: maghrebtrip/attraction:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    container_name: attraction
+    ports:
+      - "8084:8084"
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - eureka-server
+      - postgres
+
 networks:
   postgres:
+    driver: bridge
+  spring:
     driver: bridge
 
 volumes:
