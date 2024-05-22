@@ -3,10 +3,12 @@ package com.maghrebtrip.attraction.hotel;
 import com.maghrebtrip.attraction.hotel.dto.HotelRegistrationRequest;
 import com.opencsv.CSVReader;
 import lombok.AllArgsConstructor;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
@@ -70,8 +72,8 @@ public class HotelService {
 
     public void loadHotelsDataFromCSV() {
         // columns: city_id,name,image,type,description,location,rating,schedule,sponsored,room_types,amenities
-        String path = "maghrebtripservices/attraction/src/main/resources/hotels.csv";
-        try (CSVReader reader = new CSVReader(new FileReader(path))) {
+        ClassPathResource resource = new ClassPathResource("hotels.csv");
+        try (CSVReader reader = new CSVReader(new InputStreamReader(resource.getInputStream()))) {
             String[] lineInArray;
             reader.readNext();
             while ((lineInArray = reader.readNext()) != null) {

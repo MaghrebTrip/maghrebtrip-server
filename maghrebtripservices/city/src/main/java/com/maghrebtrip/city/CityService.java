@@ -3,10 +3,11 @@ package com.maghrebtrip.city;
 import com.opencsv.CSVReader;
 import lombok.AllArgsConstructor;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
@@ -39,8 +40,8 @@ public class CityService {
     }
 
     public void loadCityDataFromCSV() {
-        String path = "maghrebtripservices/city/src/main/resources/cities.csv";
-        try (CSVReader reader = new CSVReader(new FileReader(path))) {
+        ClassPathResource resource = new ClassPathResource("cities.csv");
+        try (CSVReader reader = new CSVReader(new InputStreamReader(resource.getInputStream()))) {
             String[] lineInArray;
             reader.readNext();
             while ((lineInArray = reader.readNext()) != null) {

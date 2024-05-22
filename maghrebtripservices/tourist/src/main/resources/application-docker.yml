@@ -1,17 +1,17 @@
 server:
-  port: 8083
+  port: 8080
 
 spring:
   application:
-    name: plan
+    name: tourist
   datasource:
     password: password
-    url: jdbc:postgresql://postgres:5432/plan
+    url: jdbc:postgresql://postgres:5432/tourist
     username: postgres
   jpa:
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect

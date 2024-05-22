@@ -2,12 +2,14 @@ package com.maghrebtrip.attraction.restaurant;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
 import com.maghrebtrip.attraction.hotel.Hotel;
 import com.maghrebtrip.attraction.restaurant.dto.RestaurantRegisterationRequest;
 import com.opencsv.CSVReader;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -76,8 +78,8 @@ public class RestaurantService {
 
     public void loadRestaurantsDataFromCSV() {
         // columns: city_id,name,image,type,description,location,rating,schedule,sponsored,cuisine_type,affordability
-        String path = "maghrebtripservices/attraction/src/main/resources/restaurants.csv";
-        try (CSVReader reader = new CSVReader(new FileReader(path))) {
+        ClassPathResource resource = new ClassPathResource("restaurants.csv");
+        try (CSVReader reader = new CSVReader(new InputStreamReader(resource.getInputStream()))) {
             String[] lineInArray;
             reader.readNext();
             while ((lineInArray = reader.readNext()) != null) {

@@ -3,10 +3,12 @@ package com.maghrebtrip.attraction.monument;
 import com.maghrebtrip.attraction.monument.dto.MonumentRegistrationRequest;
 import com.opencsv.CSVReader;
 import lombok.AllArgsConstructor;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.List;
 
@@ -66,8 +68,8 @@ public class MonumentService {
 
     public void loadMonumentsDataFromCSV() {
         // columns: city_id,name,image,type,description,location,rating,schedule,sponsored
-        String path = "maghrebtripservices/attraction/src/main/resources/monuments.csv";
-        try (CSVReader reader = new CSVReader(new FileReader(path))) {
+        ClassPathResource resource = new ClassPathResource("monuments.csv");
+        try (CSVReader reader = new CSVReader(new InputStreamReader(resource.getInputStream()))) {
             String[] lineInArray;
             reader.readNext();
             while ((lineInArray = reader.readNext()) != null) {

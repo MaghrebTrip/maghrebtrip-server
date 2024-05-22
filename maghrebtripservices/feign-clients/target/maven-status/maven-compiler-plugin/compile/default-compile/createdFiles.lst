@@ -1,0 +1,11 @@
+com\maghrebtrip\clients\attraction\ScheduleResponse.class
+com\maghrebtrip\clients\city\CityResponse.class
+com\maghrebtrip\clients\attraction\AttractionClient.class
+com\maghrebtrip\clients\attraction\AttractionResponse.class
+com\maghrebtrip\clients\attraction\HotelResponse.class
+com\maghrebtrip\clients\attraction\RestaurantResponse.class
+com\maghrebtrip\clients\tourist\TouristResponse.class
+com\maghrebtrip\clients\tourist\TouristClient.class
+com\maghrebtrip\clients\attraction\MonumentResponse.class
+com\maghrebtrip\clients\city\CityClient.class
+com\maghrebtrip\clients\plan\PlanClient.class

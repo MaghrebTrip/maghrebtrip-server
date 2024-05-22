@@ -42,6 +42,23 @@ services:
     networks:
       - spring
 
+  tourist:
+    build:
+      context: tourist
+      dockerfile: Dockerfile
+    image: maghrebtrip/tourist:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    container_name: tourist
+    ports:
+      - "8080:8080"
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - eureka-server
+      - postgres
+
   city:
     build:
       context: city
@@ -75,6 +92,8 @@ services:
     depends_on:
       - eureka-server
       - postgres
+      - city
+      - attraction
 
   attraction:
     build:
