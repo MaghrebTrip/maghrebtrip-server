@@ -10,6 +10,7 @@ spring:
     password: password
     url: jdbc:postgresql://localhost:5432/city
     username: postgres
+    driver-class-name: org.postgresql.Driver
   jpa:
     generate-ddl: true
     hibernate:

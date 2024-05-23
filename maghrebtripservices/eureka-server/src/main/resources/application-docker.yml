@@ -2,8 +2,6 @@ server:
   port: 8761
 
 spring:
-  profiles:
-    active: docker
   application:
     name: eureka-server
 

@@ -8,9 +8,11 @@ spring:
     url: jdbc:postgresql://postgres:5432/attraction
     username: postgres
     password: password
+    driver-class-name: org.postgresql.Driver
   jpa:
+    generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
