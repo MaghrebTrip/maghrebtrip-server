@@ -9,6 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/trips")
 @AllArgsConstructor
+@CrossOrigin("http://localhost:5173/")
 public class TripController {
 
     private final TripRepository tripRepository;

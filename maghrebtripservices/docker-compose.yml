@@ -59,6 +59,23 @@ services:
       - eureka-server
       - postgres
 
+  trip:
+    build:
+      context: trip
+      dockerfile: Dockerfile
+    image: maghrebtrip/trip:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    container_name: trip
+    ports:
+      - "8081:8081"
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - eureka-server
+      - postgres
+
   city:
     build:
       context: city
@@ -111,6 +128,24 @@ services:
     depends_on:
       - eureka-server
       - postgres
+
+  feedback:
+    build:
+      context: feedback
+      dockerfile: Dockerfile
+    image: maghrebtrip/feedback:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    container_name: feedback
+    ports:
+      - "8085:8085"
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - eureka-server
+      - postgres
+
 
 networks:
   postgres:

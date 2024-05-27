@@ -1,0 +1,14 @@
+package com.maghrebtrip.clients.tourist.dto;
+
+import lombok.Data;
+
+@Data
+public class RegisterTouristRequest {
+    private Integer id;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private String nationality;
+    private String[] preferences;
+}

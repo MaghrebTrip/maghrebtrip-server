@@ -1,5 +1,6 @@
 package com.maghrebtrip.tourist;
 
+import com.maghrebtrip.tourist.dto.TouristRegistrationRequest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -20,8 +21,22 @@ public class TouristService {
     public List<Tourist> getAllTourists() {
         return touristRepository.findAll();
     }
+    public Tourist getTouristById(Integer id) {
+        if (touristRepository.findById(id).isPresent()) {
+            return touristRepository.findById(id).get();
+        } else {
+            return null;
+        }
+    }
+    public Tourist getTouristByEmail(String email) {
+        if (touristRepository.findByEmail(email).isPresent()) {
+            return touristRepository.findByEmail(email).get();
+        } else {
+            return null;
+        }
+    }
 
-    public String registerTourist(TouristRegistrationRequest request) {
+    public Tourist registerTourist(TouristRegistrationRequest request) {
         Tourist tourist = Tourist.builder()
                 .firstName(request.firstName())
                 .lastName(request.lastName())
@@ -32,20 +47,11 @@ public class TouristService {
                 .build();
         // TODO: check if email is valid
         // TODO: check if email not taken
-        touristRepository.saveAndFlush(tourist);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        String requestBody = "{\"touristId\":\"1\",\"attractionId\":\"1\",\"rating\":\"5\",\"comment\":\"I like it!\"}";
-        HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
-
-        return restTemplate.postForObject(
-                "http://FEEDBACK/api/v1/feedbacks/new",
-                requestEntity,
-                String.class);
+        return touristRepository.save(tourist);
     }
 
-    public void updateTourist(Integer id, TouristUpdateRequest request) {
+    public Tourist updateTourist(Integer id, TouristUpdateRequest request) {
         Tourist tourist = touristRepository.findById(id).get();
         tourist.setFirstName(request.firstName());
         tourist.setLastName(request.lastName());
@@ -53,11 +59,15 @@ public class TouristService {
         tourist.setPassword(request.password());
         tourist.setNationality(request.nationality());
         tourist.setPreferences(request.preferences());
-        touristRepository.save(tourist);
+        return touristRepository.save(tourist);
     }
 
-    public void deleteTourist(Integer id) {
-        touristRepository.deleteById(id);
+    public String deleteTourist(Integer id) {
+        if (touristRepository.findById(id).isPresent()) {
+            touristRepository.deleteById(id);
+            return "Tourist deleted successfully";
+        } else {
+            return "Tourist no found!";
+        }
     }
-
 }

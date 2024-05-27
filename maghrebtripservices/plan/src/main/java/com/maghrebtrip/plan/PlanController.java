@@ -9,6 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/plans/")
 @AllArgsConstructor
+@CrossOrigin("http://localhost:5173/")
 public class PlanController {
     private final PlanService planService;
 

@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+:Tourist: as t
+
+
+package "Tourist Interface" {
+ (Sign in / Sign up) as SI
+ (Access to app) as ATA
+ (Enter trip details) as ETD
+ (Select pricing plan) as SPP
+ (Pay) as P
+ (View available options) as VAO
+ (View recommended schedule) as VRS
+ (View hotel recommendations) as VHR
+ (View restaurant recommendations) as VRR
+ (Give feedback) as GF
+}
+
+
+t -right--> ATA
+t -right-> ETD
+t -right-> SPP
+t --> VAO
+t --> GF
+
+P .up.|> SPP: extends
+ATA .down.> SI: includes
+VRR .|> VAO: extends
+VRS .up.|> VAO: extends
+VHR .up.|> VAO: extends
+
+@enduml

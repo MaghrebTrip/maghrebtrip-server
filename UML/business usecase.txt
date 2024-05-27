@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+
+rectangle Facilities {
+:Restaurant:/ as r
+:Hotel:/ as h
+}
+
+:Business:/ as b
+
+r --|> b
+h --|> b
+
+package "Business Interface" {
+ (Sign in / Sign up) as SI
+ (Access to app) as ATA
+ (Provide information about the facility) as PIAF
+ (Select Sponsoring plan) as SSP
+ (Pay) as P
+ (Recieve feedback) as RF
+}
+
+
+b -right--> ATA
+b -right-> PIAF
+b -right-> SSP
+b --> RF
+
+P .up.|> SSP: extends
+ATA .down.> SI: includes
+ 
+
+@enduml
+

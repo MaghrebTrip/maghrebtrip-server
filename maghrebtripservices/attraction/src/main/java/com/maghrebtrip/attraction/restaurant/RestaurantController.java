@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/v1/attractions/restaurants/")
+@CrossOrigin("http://localhost:5173/")
 public class RestaurantController {
 
   private final RestaurantService restaurantService;

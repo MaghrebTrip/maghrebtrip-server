@@ -1,5 +1,7 @@
 package com.maghrebtrip.tourist;
 
+import com.maghrebtrip.tourist.dto.TouristLoginRequest;
+import com.maghrebtrip.tourist.dto.TouristRegistrationRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/v1/tourists/")
+@CrossOrigin("http://localhost:5173/")
 public class TouristController {
 
     private final TouristService touristService;
@@ -19,21 +22,28 @@ public class TouristController {
     public List<Tourist> getAllTourists() {
         return touristService.getAllTourists();
     }
+    @GetMapping("tourist/id={id}")
+    public Tourist getTouristById(@PathVariable("id") Integer id) {
+        return touristService.getTouristById(id);
+    }
+    @GetMapping("tourist/email={email}")
+    public ResponseEntity<Tourist> getTouristByEmail(@PathVariable("email") String email) {
+        return ResponseEntity.ok(touristService.getTouristByEmail(email));
+    }
 
     @PostMapping("new")
-    public ResponseEntity<String> registerTourist(@RequestBody TouristRegistrationRequest touristRegistrationRequest) {
-        String response = touristService.registerTourist(touristRegistrationRequest);
-        return ResponseEntity.ok("Tourist registred | " + response);
+    public ResponseEntity<Tourist> registerTourist(@RequestBody TouristRegistrationRequest touristRegistrationRequest) {
+        return ResponseEntity.ok(touristService.registerTourist(touristRegistrationRequest));
     }
 
     @PutMapping("update/id={id}")
-    public void updateTourist(@PathVariable("id") Integer id, @RequestBody TouristUpdateRequest touristUpdateRequest) {
-        touristService.updateTourist(id, touristUpdateRequest);
+    public ResponseEntity<Tourist> updateTourist(@PathVariable("id") Integer id, @RequestBody TouristUpdateRequest touristUpdateRequest) {
+        return ResponseEntity.ok(touristService.updateTourist(id, touristUpdateRequest));
     }
 
     @DeleteMapping("delete/id={id}")
-    public void deleteTourist(@PathVariable("id") Integer id) {
-        touristService.deleteTourist(id);
+    public ResponseEntity<String> deleteTourist(@PathVariable("id") Integer id) {
+        return ResponseEntity.ok(touristService.deleteTourist(id));
     }
 
 }

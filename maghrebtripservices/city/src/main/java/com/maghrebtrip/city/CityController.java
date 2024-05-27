@@ -15,7 +15,6 @@ public class CityController {
     private final CityRepository cityRepository;
     private final CityService cityService;
 
-    @CrossOrigin("http://localhost:5173/")
     @GetMapping("all")
     public List<City> getAllCities() {return cityService.getAllCities();}
 

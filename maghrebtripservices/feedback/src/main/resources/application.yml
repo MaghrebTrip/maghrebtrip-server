@@ -10,9 +10,11 @@ spring:
     url: jdbc:postgresql://localhost:5432/feedback
     username: postgres
     password: password
+    driver-class-name: org.postgresql.Driver
   jpa:
+    generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect

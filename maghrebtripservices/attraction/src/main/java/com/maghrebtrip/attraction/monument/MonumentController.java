@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/v1/attractions/monuments/")
+@CrossOrigin("http://localhost:5173/")
 public class MonumentController {
     private final MonumentService monumentService;
 

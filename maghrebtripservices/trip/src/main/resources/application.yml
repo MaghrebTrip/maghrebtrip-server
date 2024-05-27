@@ -3,12 +3,13 @@ server:
 
 spring:
   profiles:
-    active: default
+    active: mysql
   application:
     name: trip
   datasource:
     password: password
     url: jdbc:postgresql://localhost:5432/trip
+    driver-class-name: org.postgresql.Driver
     username: postgres
   jpa:
     generate-ddl: true

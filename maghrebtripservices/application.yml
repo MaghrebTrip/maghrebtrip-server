@@ -1,0 +1,9 @@
+microservice:
+  port:
+    tourist: 8080
+    trip: 8081
+    city: 8082
+    plan: 8083
+    attraction: 8084
+    feedback: 8085
+    auth: 8086

@@ -20,7 +20,8 @@
     <module>city</module>
     <module>trip</module>
     <module>plan</module>
-      <module>feign-clients</module>
+    <module>feign-clients</module>
+    <module>auth</module>
   </modules>
 
   <properties>
@@ -56,10 +57,10 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-test</artifactId>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-openfeign</artifactId>

@@ -1,0 +1,73 @@
+@startuml
+
+title MaghrebTrip Class Diagram.
+
+
+Class Tourist {
+  -  Tourist ID
+  - Name
+  - Email
+  - Password
+  - Nationality
+  - Preferences
+  - Trip History
+}
+
+Class Trip {
+  - Trip ID
+  - Start Date
+  - End Date
+}
+
+Class City {
+  - City ID
+  - Name
+}
+Class Attraction {
+  - Attraction ID
+  - Name
+  - Type
+  - Description
+  - Opening Hours
+  - Location
+}
+
+Abstract Business {
+  - Business ID
+  - Name
+  - Location
+  - Contact Information
+  - Description
+  - Sponsored
+}
+
+Class Hotel {
+  - Rating
+  - Room Types
+  - Amenities
+}
+
+Class Restaurant {
+  - Cuisine Type
+  - Menu
+}
+
+Class Feedback {
+  - Feedback ID
+  - Rating
+  - Comment
+  - Date
+}
+
+Restaurant --> Business
+Hotel --> Business
+
+Tourist "0..*" -right- "1..*" Trip: plans
+Trip "0..*" -right- "0..*" City: "to          "
+City "1..1" -down- "0..*" Attraction: contains
+Business "1..1" -right- "0..*" Feedback: receives
+Tourist "1..1" -up- "0..*" Feedback: gives
+
+//Business "0..*" -- "0..*" Tourist: select
+
+@enduml

@@ -4,6 +4,13 @@
 
 MaghrebTrip is a web application designed to assist tourists during their trips to Morocco by organizing their activities. Users input information about their arrival and departure dates, as well as the cities they wish to visit. The application then generates a daily itinerary, suggesting key monuments and notable places based on the user's interests. MaghrebTrip also provides recommendations for hotels and restaurants. These establishments have dedicated sections where they can add information about the services they offer. Additionally, they have the option to sponsor the application for increased visibility, offering competitive rates that suit their preferences.
 
+## Team Members
+
+* **[Ahmed IDRISSI](https://github.com/ahmedidrissi)**
+* **[Ahmed LAZRAK](https://github.com/laze03)**
+* **[Fatima Ezzahra BRAIKAT](https://github.com/fatibr19)**
+* **[Hiba MEKKAOUI](https://github.com/HM2811)**
+
 ## Mock-up
 
 Enclosed are mock-up screenshots of MaghrebTrip, illustrating the planned trip planning interface. These visuals offer insight into the platform's functionality, showcasing its capability to facilitate efficient travel arrangements.
@@ -135,29 +142,47 @@ The class diagram depicts the static structure of the system, showcasing the var
 The tourist use case diagram illustrates the various interactions between the system and its users, specifically focusing on the actions and goals of tourists interacting with the system. It outlines the different functionalities and services offered to tourists, providing a high-level overview of their interactions with the system to achieve specific tasks or objectives during their visit.
 
 <p align="center">
-  <img src="imgs/UML/tourist_usecase_diagram.svg" alt="Figure 5: Tourist Use Case Diagram" width="1000">
+  <img src="imgs/UML/tourist_usecase_diagram_new.png" alt="Figure 5: Tourist Use Case Diagram">
   <br/>
   <p align="center" >Figure 5: Tourist Use Case Diagram</p>
 </p>
 
 <br/>
 
-1. **Business Use Case Diagram**
+## Technologies and Tools
 
-The business use case diagram provides a comprehensive overview of the system's functionalities from a business perspective. It delineates the various tasks or goals that different actors within the business domain aim to accomplish using the system.
+1. **Development:**
+* Server: Spring Boot, Eureka, Feign
+* Web: React.js
+* Mobile: Android Studio
+* Database: PostgreSQL, MySQL, Firebase
 
-<p align="center">
-  <img src="imgs/UML/business_usecase_diagram.svg" alt="Figure 5: Business Use Case Diagram" width="1000">
-  <br/>
-  <p align="center" >Figure 5: Business Use Case Diagram</p>
-</p>
+2. **Mapping API:**
+* Foursquare API: To obtain information about places to visit.
+* Google Maps Platform: For city map editing and navigation.
 
-<br/>
+3. **Scrapping:**
+* Python: For web scrapping to obtain information about hotels and restaurants.
+
+4. **Version Control:**
+* Git/GitHub: For tracking changes and collaboration.
+
+5. **CI/CD:**
+* Docker: Containerization of the application to ensure portability and consistency across environments.
+* GitHub Actions: Native integration with GitHub repositories, facilitating CI/CD pipeline configuration.
+
+6. **Deployment:**
+* AWS EC2: Elastic Compute Cloud for hosting the application.
+
+## Project Management
+
+1. **Methodology:**
+* Agile: Iterative and incremental development approach, enabling flexibility and adaptability to changing requirements.
 
 
-## Dev
+## Development Guidelines (for the team)
 
-1. Dockerize a microservice:
+1. **Dockerize a microservice:**
 
 - In Dockerfile:
 
@@ -187,3 +212,27 @@ mvn clean package
 ```bash
 docker build --tag=maghrebtrip/[microservice]:latest .
 ```
+
+- Run the docker container
+
+```bash
+docker run -p [port]:[port] maghrebtrip/[microservice]:latest
+```
+
+## Conclusion
+
+MaghrebTrip is a comprehensive travel planning application designed to enhance the tourist experience in Morocco. By providing personalized itineraries, attraction recommendations, and sponsorship opportunities, the app aims to streamline travel arrangements and promote local businesses. The system design and development guidelines outlined in this document offer a roadmap for the project's implementation, ensuring a robust and user-friendly application that meets the needs of tourists and businesses alike.
+
+## References
+
+1. [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+2. [React.js Documentation](https://reactjs.org/)
+3. [Android Studio Documentation](https://developer.android.com/studio)
+4. [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+5. [MySQL Documentation](https://dev.mysql.com/doc/)
+6. [Firebase Documentation](https://firebase.google.com/docs)
+7. [Foursquare API Documentation](https://developer.foursquare.com/docs/api)
+8. [Google Maps Platform Documentation](https://developers.google.com/maps)
+9. [Docker Documentation](https://docs.docker.com/)
+10. [GitHub Actions Documentation](https://docs.github.com/en/actions)
+11. [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/)
