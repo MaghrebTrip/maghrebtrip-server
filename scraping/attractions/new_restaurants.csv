@@ -1,0 +1,4 @@
+﻿city_id;name;image;type;description;location;rating;schedule;sponsored;cuisine_type;affordability
+1;Le Dhow;https://lh3.ggpht.com/p/AF1QipP0V_TVQfkCjqkt1ZkcYeMKSXH6MKn2xRLWYhly=s1536;Restaurant;A unique dining experience on a boat with a view of the Bouregreg River.;34.0291206960859, -6.8322575430725445;4.5;;0;International;$$$
+1;Dar Naji;https://lh3.ggpht.com/p/AF1QipOsH_D2RxAvEYwsx6f4A8_4Eh-aukjBSR63iWnY=s1536;Restaurant;Traditional Moroccan cuisine in a beautifully decorated setting.;34.02243862177309, -6.8418421;4.4;;0;Moroccan;$$
+1;The Two Palaces;https://lh3.ggpht.com/p/AF1QipO7aR8CZWztMCnf4PHz_k2ZzDCyZyhFujlFJ7tj=s1024;Restaurant;The Two Palaces is an exquisite restaurant situated in the heart of Rabat, offering a unique blend of culinary excellence and historical ambiance.;34.01264439224566, -6.826170988360817;4.7;;0;Moroccan;$$
