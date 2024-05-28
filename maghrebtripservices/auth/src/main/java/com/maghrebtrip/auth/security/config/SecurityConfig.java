@@ -1,4 +1,4 @@
-package com.maghrebtrip.auth.config;
+package com.maghrebtrip.auth.security.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +15,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 @Configuration
@@ -31,9 +30,7 @@ public class SecurityConfig {
         http.csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**")
-                .permitAll()
-                .requestMatchers(HttpMethod.GET,":8082/api/v1/cities/**")
+                .requestMatchers(HttpMethod.POST,"/api/v1/auth/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

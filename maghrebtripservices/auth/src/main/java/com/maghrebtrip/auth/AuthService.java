@@ -1,8 +1,5 @@
-package com.maghrebtrip.auth.service;
+package com.maghrebtrip.auth;
 
-import com.maghrebtrip.auth.Role;
-import com.maghrebtrip.auth.User;
-import com.maghrebtrip.auth.UserRepository;
 import com.maghrebtrip.auth.dto.AuthRequest;
 import com.maghrebtrip.auth.dto.AuthResponse;
 import com.maghrebtrip.auth.dto.RegisterRequest;
@@ -13,6 +10,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -58,5 +58,15 @@ public class AuthService {
         return AuthResponse.builder()
                 .token(jwtToken)
                 .build();
+    }
+
+    public List<User> getAll() {
+        List<User> users = userRepository.findAll();
+        return users;
+    }
+
+    public User getBiId(Integer id) {
+        Optional<User> user =  userRepository.findById(id);
+        return user.orElse(null);
     }
 }

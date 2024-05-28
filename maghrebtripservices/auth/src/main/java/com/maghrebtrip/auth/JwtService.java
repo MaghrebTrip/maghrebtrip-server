@@ -1,4 +1,4 @@
-package com.maghrebtrip.auth.service;
+package com.maghrebtrip.auth;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

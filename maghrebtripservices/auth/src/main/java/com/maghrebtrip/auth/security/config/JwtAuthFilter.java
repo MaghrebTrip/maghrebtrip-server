@@ -1,6 +1,6 @@
-package com.maghrebtrip.auth.config;
+package com.maghrebtrip.auth.security.config;
 
-import com.maghrebtrip.auth.service.JwtService;
+import com.maghrebtrip.auth.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
