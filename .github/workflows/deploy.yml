@@ -1,0 +1,135 @@
+name: Deploy Microservices
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:    
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "temurin"
+
+      - name: Grant execute permission for package_microservices.sh
+        run: chmod +x ${PWD}/package_microservices.sh
+        
+      - name: Run package_microservices.sh
+        run: ./package_microservices.sh
+
+      - name: Upload artifact of each microservice and their dependencies
+        uses: actions/upload-artifact@v2
+        with:
+          name: microservices
+          path: |
+            maghrebtripservices/eureka-server/target/eureka-server.jar
+            maghrebtripservices/tourist/target/tourist.jar
+            maghrebtripservices/city/target/city.jar
+            maghrebtripservices/city/target/classes/cities.csv
+            maghrebtripservices/attraction/target/attraction.jar
+            maghrebtripservices/attraction/target/classes/monuments.csv
+            maghrebtripservices/attraction/target/classes/hotels.csv
+            maghrebtripservices/attraction/target/classes/restaurants.csv
+            maghrebtripservices/plan/target/plan.jar
+            maghrebtripservices/feedback/target/feedback.jar
+            maghrebtripservices/trip/target/trip.jar 
+    
+      - name: Upload artifact of scripts
+        uses: actions/upload-artifact@v2
+        with:
+          name: scripts
+          path: |
+            action_push_microservices_ec2.sh
+            action_build_docker_images_ec2.sh
+            bankai404.pem
+
+  realease:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download artifact of each microservice and their dependencies
+        uses: actions/download-artifact@v2
+        with:
+          name: microservices
+          path: ${{ github.workspace }}/maghrebtripservices
+
+      - name: Release microservices
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: |
+            maghrebtripservices/eureka-server/target/eureka-server.jar
+            maghrebtripservices/tourist/target/tourist.jar
+            maghrebtripservices/city/target/city.jar
+            maghrebtripservices/city/target/classes/cities.csv
+            maghrebtripservices/attraction/target/attraction.jar
+            maghrebtripservices/attraction/target/classes/monuments.csv
+            maghrebtripservices/attraction/target/classes/hotels.csv
+            maghrebtripservices/attraction/target/classes/restaurants.csv
+            maghrebtripservices/plan/target/plan.jar
+            maghrebtripservices/feedback/target/feedback.jar
+            maghrebtripservices/trip/target/trip.jar
+          allowUpdates: true
+
+  deploy:
+    needs: realease
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download artifact of each microservice
+        uses: actions/download-artifact@v2
+        with:
+          name: microservices
+          path: ${{ github.workspace }}/maghrebtripservices
+
+      - name: Download artifact of scripts
+        uses: actions/download-artifact@v2
+        with:
+          name: scripts
+          path: ${{ github.workspace }}/scripts
+
+      - name: List the files in the scripts directory
+        run: ls -l ${{ github.workspace }}/scripts
+
+      - name: List the files in the maghrebtripservices directory
+        run: ls -l ${{ github.workspace }}/maghrebtripservices
+
+      - name: Write SSH keys
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          ssh-keyscan -H 54.162.158.46 > ~/.ssh/known_hosts
+
+      - name: Change permissions of the private key
+        run: chmod 600 ~/.ssh/id_rsa
+
+      - name: test chmod 600 bankai404.pem
+        run: chmod 600 ${{ github.workspace }}/scripts/bankai404.pem
+
+      - name: Grant execute permission for action_push_microservices_ec2.sh
+        run: chmod +x ${{ github.workspace }}/scripts/action_push_microservices_ec2.sh
+
+      - name: Run action_push_microservices_ec2.sh
+        run: ./scripts/action_push_microservices_ec2.sh
+
+      - name: Grant execute permission for action_build_docker_images_ec2.sh
+        run: chmod +x ${{ github.workspace }}/scripts/action_build_docker_images_ec2.sh
+
+      - name: Run action_build_docker_images_ec2.sh
+        run: ./scripts/action_build_docker_images_ec2.sh
+
