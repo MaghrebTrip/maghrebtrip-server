@@ -49,7 +49,7 @@ public class FeedbackService {
 
     }
 
-    public void registerFeedback(RegisterFeedbackRequest request) {
+    public Feedback registerFeedback(RegisterFeedbackRequest request) {
         Feedback feedback = Feedback.builder()
                 .touristId(request.touristId())
                 .attractionId(request.attractionId())
@@ -58,17 +58,17 @@ public class FeedbackService {
                 .comment(request.comment())
                 .date(LocalDateTime.now())
                 .build();
-        feedbackRepository.save(feedback);
+        return feedbackRepository.save(feedback);
     }
 
-    public void updateFeedback(Integer id, RegisterFeedbackRequest request) {
+    public Feedback updateFeedback(Integer id, RegisterFeedbackRequest request) {
         Feedback feedback = feedbackRepository.findById(id).get();
         feedback.setTouristId(request.touristId());
         feedback.setRating(request.rating());
         feedback.setComment(request.comment());
         feedback.setDate(LocalDateTime.now());
         feedback.setEdited(true);
-        feedbackRepository.save(feedback);
+        return feedbackRepository.save(feedback);
     }
 
     public void deleteFeedback(Integer id) {

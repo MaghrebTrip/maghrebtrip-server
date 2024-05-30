@@ -28,14 +28,13 @@ public class FeedbackController {
     }
 
     @PostMapping("new")
-    public ResponseEntity<String> registerFeedback(@RequestBody RegisterFeedbackRequest registerFeedbackRequest) {
-        feedbackService.registerFeedback(registerFeedbackRequest);
-        return ResponseEntity.ok("Feedback registred");
+    public Feedback registerFeedback(@RequestBody RegisterFeedbackRequest registerFeedbackRequest) {
+        return feedbackService.registerFeedback(registerFeedbackRequest);
     }
 
     @PutMapping("update/id={id}")
-    public void updateFeedback(@PathVariable("id") Integer id, @RequestBody RegisterFeedbackRequest registerFeedbackRequest) {
-        feedbackService.updateFeedback(id, registerFeedbackRequest);
+    public Feedback updateFeedback(@PathVariable("id") Integer id, @RequestBody RegisterFeedbackRequest registerFeedbackRequest) {
+        return feedbackService.updateFeedback(id, registerFeedbackRequest);
     }
 
     @DeleteMapping("delete/id={id}")
