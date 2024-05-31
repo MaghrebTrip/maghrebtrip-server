@@ -7,12 +7,16 @@ import com.maghrebtrip.feedback.dto.FeedbackResponse;
 import com.maghrebtrip.feedback.dto.FeedbackResponseProjection;
 import com.maghrebtrip.feedback.dto.RegisterFeedbackRequest;
 import lombok.AllArgsConstructor;
+
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @AllArgsConstructor
@@ -71,8 +75,11 @@ public class FeedbackService {
         return feedbackRepository.save(feedback);
     }
 
-    public void deleteFeedback(Integer id) {
+    public ResponseEntity<Map<String, String>> deleteFeedback(Integer id) {
         feedbackRepository.deleteById(id);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Feedback deleted successfully");
+        return ResponseEntity.ok(response);
     }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -38,8 +39,8 @@ public class FeedbackController {
     }
 
     @DeleteMapping("delete/id={id}")
-    public void deleteFeedback(@PathVariable("id") Integer id) {
-        feedbackService.deleteFeedback(id);
+    public ResponseEntity<Map<String, String>> deleteFeedback(@PathVariable("id") Integer id) {
+        return feedbackService.deleteFeedback(id);
     }
 
 }
