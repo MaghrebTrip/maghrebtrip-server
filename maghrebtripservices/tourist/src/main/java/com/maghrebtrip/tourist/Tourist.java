@@ -30,6 +30,7 @@ public class Tourist  {
     private String lastName;
     private String email;
     private String password;
+    private byte[] image;
     private String nationality;
     private String[] preferences;
 }

@@ -1,14 +1,13 @@
 package com.maghrebtrip.tourist;
 
-import com.maghrebtrip.tourist.dto.TouristRegistrationRequest;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import lombok.AllArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -59,6 +58,14 @@ public class TouristService {
         tourist.setPassword(request.password());
         tourist.setNationality(request.nationality());
         tourist.setPreferences(request.preferences());
+        return touristRepository.save(tourist);
+    }
+
+    public Tourist updateTouristPhoto(Integer id, MultipartFile image) throws IOException {
+        Tourist tourist = touristRepository.findById(id).get();
+        if (!image.isEmpty()) {
+            tourist.setImage(image.getBytes());
+        }
         return touristRepository.save(tourist);
     }
 

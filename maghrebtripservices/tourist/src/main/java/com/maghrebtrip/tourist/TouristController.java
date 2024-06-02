@@ -1,12 +1,12 @@
 package com.maghrebtrip.tourist;
 
-import com.maghrebtrip.tourist.dto.TouristLoginRequest;
-import com.maghrebtrip.tourist.dto.TouristRegistrationRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Slf4j
@@ -39,6 +39,11 @@ public class TouristController {
     @PutMapping("update/id={id}")
     public ResponseEntity<Tourist> updateTourist(@PathVariable("id") Integer id, @RequestBody TouristUpdateRequest touristUpdateRequest) {
         return ResponseEntity.ok(touristService.updateTourist(id, touristUpdateRequest));
+    }
+
+    @PutMapping("update-photo/id={id}")
+    public ResponseEntity<Tourist> updateTouristPhoto(@PathVariable("id") Integer id, @RequestParam("image") MultipartFile image) throws IOException {
+        return ResponseEntity.ok(touristService.updateTouristPhoto(id, image));
     }
 
     @DeleteMapping("delete/id={id}")

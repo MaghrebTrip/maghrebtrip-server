@@ -1,5 +1,7 @@
 package com.maghrebtrip.tourist;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public record TouristRegistrationRequest(
         String firstName,
         String lastName,
