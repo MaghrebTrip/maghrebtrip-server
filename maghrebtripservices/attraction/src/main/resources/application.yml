@@ -1,11 +1,18 @@
 server:
-  port: 8084
+  port: ${microservices.attraction.port}
 
 spring:
   profiles:
     active: default
   application:
     name: attraction
+  config:
+    import: optional:configserver:http://localhost:8888
+  datasource:
+    url: jdbc:postgresql://localhost:${datasources.postgresql.port}/attraction
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: password
   jpa:
     generate-ddl: true
     hibernate:
@@ -15,16 +22,11 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-  datasource:
-    url: jdbc:postgresql://localhost:5432/attraction
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: password
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:${microservices.eureka-server.port}/eureka
     fetch-registry: true
     register-with-eureka: true
     enabled: true

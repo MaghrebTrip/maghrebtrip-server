@@ -1,13 +1,15 @@
 server:
-  port: 8081
+  port: ${microservices.tourist.port}
 
 spring:
   profiles:
     active: default
   application:
     name: tourist
+  config:
+    import: optional:configserver:http://localhost:8888
   datasource:
-    url: jdbc:postgresql://localhost:5432/tourist
+    url: jdbc:postgresql://localhost:${datasources.postgresql.port}/tourist
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: password
@@ -24,7 +26,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://localhost:${microservices.eureka-server.port}/eureka
     fetch-registry: true
     register-with-eureka: true
     enabled: true

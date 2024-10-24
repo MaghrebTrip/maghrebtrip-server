@@ -1,11 +1,13 @@
 server:
-  port: 8084
+  port: ${microservices.attraction.port}
 
 spring:
   application:
     name: attraction
+  config:
+    import: optional:configserver:http://config-server:8888
   datasource:
-    url: jdbc:postgresql://postgres:5432/attraction
+    url: jdbc:postgresql://postgres:${datasources.postgresql.port}/attraction
     username: postgres
     password: password
     driver-class-name: org.postgresql.Driver
@@ -22,7 +24,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: http://eureka-server:${microservices.eureka-server.port}/eureka
     fetch-registry: true
     register-with-eureka: true
     enabled: true

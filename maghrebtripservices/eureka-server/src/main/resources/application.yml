@@ -1,11 +1,13 @@
 server:
-  port: 8761
+  port: ${microservices.eureka-server.port}
 
 spring:
   profiles:
     active: default
   application:
     name: eureka-server
+  config:
+      import: optional:configserver:http://localhost:8888
 
 eureka:
   client:

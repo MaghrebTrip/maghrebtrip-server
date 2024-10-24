@@ -13,6 +13,8 @@
   <url>https://www.maghrebtrip.ma</url>
 
   <modules>
+    <module>auth</module>
+    <module>config-server</module>
     <module>feedback</module>
     <module>tourist</module>
     <module>eureka-server</module>
@@ -21,7 +23,6 @@
     <module>trip</module>
     <module>plan</module>
     <module>feign-clients</module>
-    <module>auth</module>
   </modules>
 
   <properties>
@@ -64,6 +65,10 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-config</artifactId>
     </dependency>
   </dependencies>
 
