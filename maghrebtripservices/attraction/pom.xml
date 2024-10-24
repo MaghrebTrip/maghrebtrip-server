@@ -84,13 +84,25 @@
 
     <profiles>
         <profile>
+            <id>dev</id>
+            <properties>
+                <activatedProperties>dev</activatedProperties>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>mysql</id>
+            <properties>
+                <activatedProperties>mysql</activatedProperties>
+            </properties>
+        </profile>
+        <profile>
             <id>docker</id>
             <properties>
                 <activatedProperties>docker</activatedProperties>
             </properties>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
         </profile>
     </profiles>
 
