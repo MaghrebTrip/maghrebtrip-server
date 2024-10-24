@@ -3,16 +3,11 @@ server:
 
 spring:
   profiles:
-    active: default
+    active: dev
   application:
     name: feedback
   config:
     import: optional:configserver:http://localhost:8888
-  datasource:
-    url: jdbc:postgresql://localhost:${datasources.postgresql.port}/feedback
-    username: postgres
-    password: password
-    driver-class-name: org.postgresql.Driver
   jpa:
     generate-ddl: true
     hibernate:
@@ -25,8 +20,6 @@ spring:
 
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:${microservices.eureka-server.port}/eureka
     fetch-registry: true
     register-with-eureka: true
     enabled: true

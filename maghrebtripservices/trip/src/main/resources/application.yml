@@ -3,30 +3,22 @@ server:
 
 spring:
   profiles:
-    active: default
+    active: dev
   application:
     name: trip
   config:
     import: optional:configserver:http://localhost:8888
-  datasource:
-    password: password
-    url: jdbc:postgresql://localhost:${datasources.postgresql.port}/trip
-    driver-class-name: org.postgresql.Driver
-    username: postgres
   jpa:
     generate-ddl: true
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
 
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:${microservices.eureka-server.port}/eureka
     fetch-registry: true
     register-with-eureka: true
     enabled: true
