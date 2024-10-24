@@ -12,7 +12,7 @@ mvn clean install -DskipTests
 cd ..
 
 # Define an array of microservice directories
-microservices=("eureka-server" "tourist" "city" "attraction" "plan" "feedback" "trip")
+microservices=("eureka-server" "tourist" "city" "attraction" "plan" "feedback" "trip" "auth")
 
 # Loop through each microservice directory
 for microservice in "${microservices[@]}"
