@@ -1,5 +1,5 @@
 server:
-  port: ${microservices.tourist.port}
+  port: ${service.port}
 
 spring:
   profiles:
@@ -8,17 +8,25 @@ spring:
     name: tourist
   config:
     import: optional:configserver:http://localhost:8888
+  datasource:
+    password: ${db.password}
+    url: ${db.url}
+    username: ${db.username}
+    driver-class-name: ${db.driver}
   jpa:
     generate-ddl: true
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
+        dialect: ${db.dialect}
         format_sql: true
     show-sql: true
 
 eureka:
   client:
+    service-url:
+      defaultZone: ${eureka.url}
     fetch-registry: true
     register-with-eureka: true
     enabled: true

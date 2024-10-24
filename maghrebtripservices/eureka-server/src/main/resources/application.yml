@@ -1,5 +1,5 @@
 server:
-  port: ${microservices.eureka-server.port}
+  port: ${service.port}
 
 spring:
   profiles:
