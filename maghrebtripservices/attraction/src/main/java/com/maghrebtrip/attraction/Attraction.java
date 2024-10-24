@@ -27,8 +27,4 @@ public abstract class Attraction {
     private String location;
     private float rating;
     private int sponsored;
-    //0 not sponsored
-    //1 basic plan
-    //2 advanced plan
-    //3 VIP plan
 }

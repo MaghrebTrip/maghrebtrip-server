@@ -42,14 +42,14 @@ services:
     networks:
       - spring
 
-  tourist:
+  auth:
     build:
-      context: tourist
+      context: auth
       dockerfile: Dockerfile
-    image: maghrebtrip/tourist:latest
+    image: maghrebtrip/auth:latest
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-    container_name: tourist
+    container_name: auth
     ports:
       - "8080:8080"
     networks:
@@ -59,14 +59,14 @@ services:
       - eureka-server
       - postgres
 
-  trip:
+  tourist:
     build:
-      context: trip
+      context: tourist
       dockerfile: Dockerfile
-    image: maghrebtrip/trip:latest
+    image: maghrebtrip/tourist:latest
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-    container_name: trip
+    container_name: tourist
     ports:
       - "8081:8081"
     networks:
@@ -146,6 +146,22 @@ services:
       - eureka-server
       - postgres
 
+  trip:
+    build:
+      context: trip
+      dockerfile: Dockerfile
+    image: maghrebtrip/trip:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    container_name: trip
+    ports:
+      - "8086:8086"
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - eureka-server
+      - postgres
 
 networks:
   postgres:
