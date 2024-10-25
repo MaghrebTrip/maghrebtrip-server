@@ -6,9 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Collection;
-import java.util.List;
-
 @Data
 @Builder
 @AllArgsConstructor
@@ -17,14 +14,6 @@ import java.util.List;
 public class Tourist  {
 
     @Id
-    @SequenceGenerator(
-            name = "tourist_id_sequence",
-            sequenceName = "tourist_id_sequence"
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "tourist_id_sequence"
-    )
     private Integer id;
     private String firstName;
     private String lastName;

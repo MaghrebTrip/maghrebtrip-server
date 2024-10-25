@@ -22,7 +22,7 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
-     private final TouristClient touristClient;
+    private final TouristClient touristClient;
 
     public AuthResponse register(RegisterRequest request) {
         var user = User.builder()
@@ -35,10 +35,11 @@ public class AuthService {
         userRepository.saveAndFlush(user);
         var jwtToken = jwtService.generateToken(user);
         RegisterTouristRequest touristRequest = new RegisterTouristRequest();
-        touristRequest.setFirstName(request.getFirstName());
-        touristRequest.setLastName(request.getLastName());
-        touristRequest.setEmail(request.getEmail());
-        touristRequest.setPassword(request.getPassword());
+        touristRequest.setId(user.getId());
+        touristRequest.setFirstName(user.getFirstName());
+        touristRequest.setLastName(user.getLastName());
+        touristRequest.setEmail(user.getEmail());
+        touristRequest.setPassword(user.getPassword());
         touristClient.registerTourist(touristRequest);
         return AuthResponse.builder()
                 .token(jwtToken)
