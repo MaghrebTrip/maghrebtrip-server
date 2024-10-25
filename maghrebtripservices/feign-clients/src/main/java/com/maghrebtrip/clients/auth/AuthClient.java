@@ -11,7 +11,7 @@ import com.maghrebtrip.clients.auth.dto.RegisterRequest;
 
 @FeignClient(name = "auth", url = "${clients.auth.url}")
 public interface AuthClient {
-    
+
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(
             @RequestBody RegisterRequest request
