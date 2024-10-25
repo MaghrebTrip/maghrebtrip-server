@@ -1,11 +1,7 @@
 package com.maghrebtrip.tourist;
 
 import com.maghrebtrip.tourist.dto.TouristRegistrationRequest;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import lombok.AllArgsConstructor;
 
@@ -16,11 +12,11 @@ import java.util.List;
 public class TouristService {
 
     private final TouristRepository touristRepository;
-    private final RestTemplate restTemplate;
 
     public List<Tourist> getAllTourists() {
         return touristRepository.findAll();
     }
+
     public Tourist getTouristById(Integer id) {
         if (touristRepository.findById(id).isPresent()) {
             return touristRepository.findById(id).get();
@@ -28,6 +24,7 @@ public class TouristService {
             return null;
         }
     }
+
     public Tourist getTouristByEmail(String email) {
         if (touristRepository.findByEmail(email).isPresent()) {
             return touristRepository.findByEmail(email).get();
@@ -38,6 +35,7 @@ public class TouristService {
 
     public Tourist registerTourist(TouristRegistrationRequest request) {
         Tourist tourist = Tourist.builder()
+                .id(request.id())
                 .firstName(request.firstName())
                 .lastName(request.lastName())
                 .email(request.email())

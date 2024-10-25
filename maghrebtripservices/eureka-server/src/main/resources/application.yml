@@ -1,11 +1,13 @@
 server:
-  port: 8761
+  port: ${service.port}
 
 spring:
   profiles:
-    active: default
+    active: dev
   application:
     name: eureka-server
+  config:
+      import: optional:configserver:http://localhost:8888
 
 eureka:
   client:

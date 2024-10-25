@@ -55,6 +55,10 @@
             <version>5.8</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.maghrebtrip</groupId>
             <artifactId>feign-clients</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -94,13 +98,25 @@
 
     <profiles>
         <profile>
+            <id>dev</id>
+            <properties>
+                <activatedProperties>dev</activatedProperties>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>mysql</id>
+            <properties>
+                <activatedProperties>mysql</activatedProperties>
+            </properties>
+        </profile>
+        <profile>
             <id>docker</id>
             <properties>
                 <activatedProperties>docker</activatedProperties>
             </properties>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
         </profile>
     </profiles>
 </project>

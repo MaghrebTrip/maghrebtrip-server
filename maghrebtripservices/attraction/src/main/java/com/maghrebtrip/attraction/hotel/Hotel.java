@@ -12,7 +12,6 @@ import com.maghrebtrip.attraction.Attraction;
 @Entity
 public class Hotel extends Attraction {
 
-    //private Integer rating;
     private String[] amenities;
     private String roomTypes;
 

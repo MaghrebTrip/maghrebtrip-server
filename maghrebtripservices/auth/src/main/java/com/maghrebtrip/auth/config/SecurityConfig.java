@@ -33,8 +33,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/v1/auth/**")
                 .permitAll()
-                .requestMatchers(HttpMethod.GET,":8082/api/v1/cities/**")
-                .permitAll()
+//                .requestMatchers(HttpMethod.GET,":8082/api/v1/cities/**")
+//                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -60,5 +60,4 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", corsConfiguration);
         return source;
     }
-
 }

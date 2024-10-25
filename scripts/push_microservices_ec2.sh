@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the permissions for the PEM file
-chmod 600 bankai404.pem
+chmod 600 bankai303.pem
 
 # Define an array of microservices and their respective resource files
 declare -A microservices
@@ -11,8 +11,9 @@ microservices=(
     ["city"]="cities.csv"
     ["attraction"]="hotels.csv monuments.csv restaurants.csv"
     ["plan"]=""
-    # ["feedback"]=""
-    # ["trip"]=""
+    ["feedback"]=""
+    ["trip"]=""
+    ["auth"]=""
 )
 
 # Loop through each microservice
@@ -21,7 +22,7 @@ do
     echo "Processing $microservice microservice..."
 
     # Build the scp command
-    scp_command="scp -i bankai404.pem "
+    scp_command="scp -i bankai303.pem "
 
     # Add the JAR file to the scp command
     scp_command+="maghrebtripservices/$microservice/target/$microservice.jar "
@@ -39,14 +40,14 @@ do
     scp_command+="maghrebtripservices/$microservice/Dockerfile "
 
     # Add the destination to the scp command
-    scp_command+="ec2-user@54.162.158.46:/home/ec2-user/downloads/$microservice"
+    scp_command+="ec2-user@100.25.156.241:/home/ec2-user/downloads/$microservice"
 
     # Execute the scp command
     echo "Running: $scp_command"
     eval "$scp_command"
 
     # Modify Dockerfile to use files directly in the folder
-    ssh_command="ssh -i bankai404.pem ec2-user@54.162.158.46 "
+    ssh_command="ssh -i bankai303.pem ec2-user@100.25.156.241 "
     ssh_command+="\"sed -i 's|target/$microservice.jar|$microservice.jar|; "
     ssh_command+="s|target/classes/||g' /home/ec2-user/downloads/$microservice/Dockerfile\""
 
