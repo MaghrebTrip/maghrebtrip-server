@@ -11,50 +11,6 @@ MaghrebTrip is a web application designed to assist tourists during their trips 
 * **[Fatima Ezzahra BRAIKAT](https://github.com/fatibr19)**
 * **[Hiba MEKKAOUI](https://github.com/HM2811)**
 
-## Mock-up
-
-Enclosed are mock-up screenshots of MaghrebTrip, illustrating the planned trip planning interface. These visuals offer insight into the platform's functionality, showcasing its capability to facilitate efficient travel arrangements.
-
-Homepage: Serves as the initial landing page for MaghrebTrip, offering an informative overview of the application's features and benefits, encouraging user engagement.
-
-<p align="center">
-  <img src="imgs/maquette/maquette_1.jpg" alt="Figure 1: MaghrebTrip Homepage" width="1000">
-  <br/>
-  <p align="center" >Picture 1: MaghrebTrip Homepage</p>
-</p>
-
-<br/>
-
-Login Page: Facilitates secure access for registered users, requiring authentication via email and password to ensure data privacy and account security.
-
-<p align="center">
-  <img src="imgs/maquette/maquette_2.jpg" alt="Figure 1: MaghrebTrip Log In page" width="1000">
-  <br/>
-  <p align="center" >Picture 2: MaghrebTrip Log In page</p>
-</p>
-
-<br/>
-
-Sign In Page: Provides a streamlined process for new users to create accounts, guiding them through the registration process with clear prompts and ensuring accurate user information for future authentication.
-
-<p align="center">
-  <img src="imgs/maquette/maquette_3.jpg" alt="Figure 1: MaghrebTrip Sign In page" width="1000">
-  <br/>
-  <p align="center" >Picture 3: MaghrebTrip Sign In page</p>
-</p>
-
-<br/>
-
-Trip Planning Page: Authenticated users input arrival/departure dates, select cities, and receive personalized itineraries with recommended destinations for a seamless travel experience.
-
-<p align="center">
-  <img src="imgs/maquette/maquette_4.jpg" alt="Figure 1: MaghrebTrip Selection page" width="1000">
-  <br/>
-  <p align="center" >Picture 4: MaghrebTrip Selection page</p>
-</p>
-
-<br/>
-
 ## Application requirements
 
 In this section, both functional and non-functional requirements will be outlined to comprehensively delineate the system's operational and performance parameters.
@@ -121,30 +77,34 @@ In this section, both functional and non-functional requirements will be outline
 8. **Localization:**
    - The app should support multiple languages and currencies to accommodate users from different regions.
 
-## System design
+## Use Cases
 
-The ensuing section features conceptual UML diagrams illustrating the structural and behavioral aspects of the system. These diagrams offer visual insights into the system's components, their interconnections, and operational flow. They provide a clear framework for understanding the system's design and functionality, aiding in the development process.
-
-1. **Class Diagram**
-
-The class diagram depicts the static structure of the system, showcasing the various classes, their attributes, and the relationships among them. It serves as a blueprint for understanding the entities within the system and their interactions, laying the foundation for implementation and further development.
+1. **Tourist Actor**
 
 <p align="center">
-  <img src="imgs/UML/class_diagram.svg" alt="Figure 5: Class Diagram" width="1000">
+  <img src="diagrams/tourist_usecase_diagram_new.png" alt="Figure 5: Tourist Use Case Diagram">
   <br/>
-  <p align="center" >Figure 5: Class Diagram</p>
+  <p align="center" >Figure 5: Tourist Use Case Diagram</p>
 </p>
 
 <br/>
 
-2. **Tourist Use Case Diagram**
+## System design
 
-The tourist use case diagram illustrates the various interactions between the system and its users, specifically focusing on the actions and goals of tourists interacting with the system. It outlines the different functionalities and services offered to tourists, providing a high-level overview of their interactions with the system to achieve specific tasks or objectives during their visit.
+1. **System Architecture**
 
 <p align="center">
-  <img src="imgs/UML/tourist_usecase_diagram_new.png" alt="Figure 5: Tourist Use Case Diagram">
+  <img src="diagrams/system_architecture.png" alt="Figure 1: System Architecture" width="1000">
   <br/>
-  <p align="center" >Figure 5: Tourist Use Case Diagram</p>
+  <p align="center" >Figure 1: System Architecture</p>
+</p>
+
+2. **Class Diagram**
+
+<p align="center">
+  <img src="diagrams/class_diagram.svg" alt="Figure 5: Class Diagram" width="1000">
+  <br/>
+  <p align="center" >Figure 5: Class Diagram</p>
 </p>
 
 <br/>
